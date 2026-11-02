@@ -1,0 +1,31 @@
+# Matchs de la semaine pour l'onglet Événements de Popcorn+ : un seul appel par jour aux calendriers sportifs
+# pour tous les utilisateurs. Le fichier est publié dans la version « feed » (jamais marquée comme dernière version,
+# pour ne pas gêner la mise à jour de l'app).
+name: Matchs de la semaine
+
+on:
+  schedule:
+    - cron: "0 4,16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construire events.json
+        run: python3 feed/build_events.py feed/rights.json events.json
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+          TSDB_KEY: ${{ secrets.TSDB_KEY }}
+      - name: Publier dans la version « feed »
+        run: |
+          gh release view feed >/dev/null 2>&1 || gh release create feed --latest=false \
+            --title "Matchs de la semaine" --notes "Fichier généré automatiquement deux fois par jour pour l'onglet Événements."
+          gh release upload feed events.json --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}

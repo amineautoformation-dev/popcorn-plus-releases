@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""
+Fichier quotidien des événements sportifs de Popcorn+ (events.json), produit par GitHub Actions.
+
+Un seul appel par jour aux calendriers sportifs pour tous les utilisateurs : les TV ne téléchargent que ce petit
+fichier public, puis rapprochent elles-mêmes chaque match des chaînes de LEUR playlist grâce à la table des droits
+TV (rights), embarquée ici pour pouvoir la corriger sans publier une nouvelle version de l'app.
+
+Sources (sans ESPN, cf. popcornautonomeproject/03-conformite.md) :
+  - football-data.org (clé gratuite, variable FOOTBALL_DATA_TOKEN) : 5 grands championnats et Ligue des champions ;
+  - Jolpica (sans clé) : Formule 1 ;
+  - TheSportsDB (clé TSDB_KEY, « 123 » par défaut, gratuite et limitée) : Botola Pro, NBA, NFL, UFC, MotoGP.
+Aucun score n'est lu ni publié.
+
+Usage : python3 build_events.py rights.json events.json
+"""
+
+import json
+import os
+import sys
+import time
+import urllib.parse
+import urllib.request
+from datetime import datetime, timedelta, timezone
+
+DAYS = 10
+NOW = datetime.now(timezone.utc)
+UNTIL = NOW + timedelta(days=DAYS)
+
+# football-data.org : code de compétition → (clé des droits TV, nom affiché)
+FOOTBALL = {
+    "PL": ("epl", "Premier League"),
+    "PD": ("laliga", "LaLiga"),
+    "FL1": ("ligue1", "Ligue 1"),
+    "SA": ("seriea", "Serie A"),
+    "BL1": ("bundesliga", "Bundesliga"),
+    "CL": ("ucl", "Ligue des champions"),
+}
+
+# TheSportsDB : identifiant de ligue → (clé des droits TV, sport, libellé du sport, compétition, durée en heures)
+TSDB = {
+    4520: ("botola", "football", "Football", "Botola Pro", 2),
+    4387: ("nba", "basketball", "Basketball", "NBA", 2.5),
+    4391: ("nfl", "american", "Football américain", "NFL", 3.5),
+    4443: ("ufc", "mma", "UFC & MMA", "UFC", 5),
+    4407: ("motogp", "motor", "Sports mécaniques", "MotoGP", 2),
+}
+
+STAGES = {
+    "GROUP_STAGE": "Phase de groupes", "LEAGUE_STAGE": "Phase de ligue", "PLAYOFFS": "Barrages",
+    "LAST_16": "Huitièmes de finale", "QUARTER_FINALS": "Quarts de finale", "SEMI_FINALS": "Demi-finales",
+    "FINAL": "Finale",
+}
+
+
+def get(url, headers=None):
+    req = urllib.request.Request(url, headers={"User-Agent": "popcorn-plus-feed", **(headers or {})})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
+
+
+def ms(dt):
+    return int(dt.timestamp() * 1000)
+
+
+def football():
+    token = os.environ.get("FOOTBALL_DATA_TOKEN")
+    if not token:
+        print("football-data.org : pas de clé (FOOTBALL_DATA_TOKEN), ignoré", file=sys.stderr)
+        return []
+    q = urllib.parse.urlencode({
+        "competitions": ",".join(FOOTBALL), "dateFrom": NOW.date().isoformat(), "dateTo": UNTIL.date().isoformat(),
+    })
+    data = get(f"https://api.football-data.org/v4/matches?{q}", {"X-Auth-Token": token})
+    out = []
+    for m in data.get("matches", []):
+        if m.get("status") in ("FINISHED", "POSTPONED", "CANCELLED", "AWARDED"):
+            continue
+        code = m["competition"]["code"]
+        league, name = FOOTBALL.get(code, (None, m["competition"]["name"]))
+        start = datetime.fromisoformat(m["utcDate"].replace("Z", "+00:00"))
+        stage = STAGES.get(m.get("stage")) or (f"Journée {m['matchday']}" if m.get("matchday") else None)
+        home, away = m["homeTeam"], m["awayTeam"]
+        out.append({
+            "id": f"fd-{m['id']}", "league": league, "sport": "football", "sportLabel": "Football", "competition": name,
+            "home": home.get("shortName") or home.get("name"), "away": away.get("shortName") or away.get("name"),
+            "homeBadge": home.get("crest"), "awayBadge": away.get("crest"),
+            "start": ms(start), "end": ms(start + timedelta(hours=2)), "stage": stage,
+        })
+    return out
+
+
+def formula1():
+    data = get("https://api.jolpi.ca/ergast/f1/current.json")
+    out = []
+    for race in data["MRData"]["RaceTable"]["Races"]:
+        sessions = [("Course", race.get("date"), race.get("time"))]
+        if race.get("Qualifying"):
+            sessions.append(("Qualifications", race["Qualifying"].get("date"), race["Qualifying"].get("time")))
+        if race.get("Sprint"):
+            sessions.append(("Sprint", race["Sprint"].get("date"), race["Sprint"].get("time")))
+        for label, day, time in sessions:
+            if not day or not time:
+                continue
+            start = datetime.fromisoformat(f"{day}T{time.replace('Z', '')}+00:00")
+            if not NOW - timedelta(hours=3) <= start <= UNTIL:
+                continue
+            out.append({
+                "id": f"f1-{race['season']}-{race['round']}-{label}", "league": "f1", "sport": "motor",
+                "sportLabel": "Sports mécaniques", "competition": "Formule 1", "home": race["raceName"],
+                "away": None, "start": ms(start), "end": ms(start + timedelta(hours=2 if label == "Course" else 1)), "stage": label,
+            })
+    return out
+
+
+def thesportsdb():
+    key = os.environ.get("TSDB_KEY") or "123"
+    out = []
+    for lid, (league, sport, sport_label, competition, hours) in TSDB.items():
+        time.sleep(2.5)  # clé gratuite : 30 requêtes par minute au plus
+        try:
+            events = get(f"https://www.thesportsdb.com/api/v1/json/{key}/eventsnextleague.php?id={lid}").get("events") or []
+        except Exception as e:  # une ligue en panne ne bloque pas le fichier
+            print(f"TheSportsDB {competition} : {e}", file=sys.stderr)
+            continue
+        for e in events:
+            if not e.get("strTimestamp"):
+                continue
+            start = datetime.fromisoformat(e["strTimestamp"].replace("Z", "")).replace(tzinfo=timezone.utc)
+            if start > UNTIL:
+                continue
+            out.append({
+                "id": f"tsdb-{e['idEvent']}", "league": league, "sport": sport, "sportLabel": sport_label,
+                "competition": competition, "home": e.get("strHomeTeam") or e.get("strEvent"), "away": e.get("strAwayTeam"),
+                "homeBadge": e.get("strHomeTeamBadge"), "awayBadge": e.get("strAwayTeamBadge"),
+                "posterWide": e.get("strThumb") if sport == "mma" else None,
+                "start": ms(start), "end": ms(start + timedelta(hours=hours)), "stage": e.get("strRound") and f"Journée {e['strRound']}",
+            })
+    return out
+
+
+def main(rights_path, out_path):
+    events = []
+    for source in (football, formula1, thesportsdb):
+        try:
+            events += source()
+        except Exception as e:
+            print(f"{source.__name__} : {e}", file=sys.stderr)
+    events = [{k: v for k, v in e.items() if v is not None} for e in sorted(events, key=lambda e: e["start"])]
+    with open(rights_path, encoding="utf-8") as f:
+        rights = json.load(f)
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump({"version": 1, "generated": ms(NOW), "events": events, "rights": rights}, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"{len(events)} événements écrits dans {out_path}")
+
+
+if __name__ == "__main__":
+    main(*sys.argv[1:3])
