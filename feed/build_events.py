@@ -189,11 +189,17 @@ def main(rights_path, out_path):
         channel_list = [{k: v for k, v in c.items() if k != "rx"} for c in json.load(f)["channels"]]
     with open(os.path.join(here, "tv_rights.json"), encoding="utf-8") as f:
         tv_rights = {k: v for k, v in json.load(f).items() if k != "about"}
+    import beinguide
+    try:
+        confirmed, added = beinguide.add_bein(events)
+        print(f"guide beIN : {confirmed} matchs confirmés en arabe/anglais, {added} matchs ajoutés (Europa, Conférence, AFC, CAF…)")
+    except Exception as e:
+        print(f"guide beIN : {e}", file=sys.stderr)
     try:
         print(f"guide TV : {tvguide.add_tv(events, catalogue.load(os.path.join(here, 'channels.json')))} matchs avec leur chaîne française")
     except Exception as e:
         print(f"guide TV : {e}", file=sys.stderr)
-    events = [{k: v for k, v in e.items() if v is not None} for e in sorted(events, key=lambda e: e["start"])]
+    events = [{k: v for k, v in e.items() if v is not None and not k.startswith("_")} for e in sorted(events, key=lambda e: e["start"])]
     with open(rights_path, encoding="utf-8") as f:
         rights = json.load(f)
     with open(out_path, "w", encoding="utf-8") as f:

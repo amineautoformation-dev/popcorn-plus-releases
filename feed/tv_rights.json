@@ -13,5 +13,8 @@
   "roshn": {"ar": ["thmanyah", "thmanyah-[0-9]*", "thmanyah-minasa-*", "ksa-sports-*", "ssc-[0-9]*"]},
   "egypt": {"ar": ["on-sport", "on-sport-*"]},
   "afc": {"ar": ["bein-[0-9]*", "bein-xtra-*"], "en": ["bein-en-*"]},
-  "caf": {"ar": ["bein-[0-9]*", "arryadia", "arryadia-*", "al-aoula"], "fr": ["canalplus-sport-*"]}
+  "caf": {"ar": ["bein-[0-9]*", "arryadia", "arryadia-*", "al-aoula"], "fr": ["canalplus-sport-*"]},
+  "qsl": {"ar": ["alkass-*"], "en": ["bein-en-*"]},
+  "arabcup": {"ar": ["bein-[0-9]*", "alkass-*"], "en": ["bein-en-*"]},
+  "intl": {"ar": ["bein-[0-9]*", "bein-xtra-*"], "fr": ["tf1", "m6", "canalplus", "lequipe"], "en": ["bein-en-*", "itv1", "bbc-one"]}
 }
