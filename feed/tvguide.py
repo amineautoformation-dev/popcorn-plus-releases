@@ -60,11 +60,25 @@ def team_keys(names):
         keys |= {t for t in toks if t not in STOP and len(t) >= 3}
         if len(n.strip()) <= 4 and n.strip().isupper():
             keys.add(ALIAS.get(n.strip().upper(), n.strip().upper()))
+    if "INTER" in keys:
+        keys -= {"MILANO", "MILAN"}  # l'Inter se reconnaît à « Inter », pas à « Milan »
     # Un nom fait seulement de mots communs (« Man United ») : on garde « UNITED » pour ne pas le perdre.
     if not keys:
         for n in names:
             keys |= {t for t in norm(n) if len(t) >= 3 and t not in {"FC", "AND", "THE"}}
     return keys
+
+
+# Clubs d'une même ville : « Manchester » seul ne dit pas si c'est United ou City.
+RIVALS = [{"UNITED", "CITY"}, {"REAL", "ATLETICO"}, {"INTER", "AC"}]
+
+
+def rival(team_words, words):
+    for group in RIVALS:
+        mine = [m for m in group if m in team_words]
+        if len(mine) == 1 and mine[0] not in words and any(o in words for o in group - {mine[0]}):
+            return True
+    return False
 
 
 def same(a, b):
@@ -95,7 +109,10 @@ def assign(events, programmes):
                 continue
             if YOUTH.search(" ".join(words)) and not YOUTH.search(" ".join(norm(f"{e.get('home')} {e.get('away')} {e.get('competition')}"))):
                 continue
-            h, a = score(team_keys(_team_names(e, "home")), words), score(team_keys(_team_names(e, "away")), words)
+            hn, an = _team_names(e, "home"), _team_names(e, "away")
+            if rival(norm(" ".join(filter(None, hn))), words) or rival(norm(" ".join(filter(None, an))), words):
+                continue
+            h, a = score(team_keys(hn), words), score(team_keys(an), words)
             if h and a and h + a > best_score:
                 best, best_score = e, h + a
             elif h and a and h + a == best_score:
