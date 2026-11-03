@@ -22,10 +22,12 @@ jobs:
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
           TSDB_KEY: ${{ secrets.TSDB_KEY }}
+      - name: Construire top10.json (Top 10 Netflix officiel, France et Maroc)
+        run: python3 feed/build_top10.py top10.json
       - name: Publier dans la version « feed »
         run: |
           gh release view feed >/dev/null 2>&1 || gh release create feed --latest=false \
             --title "Matchs de la semaine" --notes "Fichier généré automatiquement deux fois par jour pour l'onglet Événements."
-          gh release upload feed events.json --clobber
+          gh release upload feed events.json top10.json --clobber
         env:
           GH_TOKEN: ${{ github.token }}
