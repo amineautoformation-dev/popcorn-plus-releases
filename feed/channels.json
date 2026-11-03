@@ -2,71 +2,803 @@
   "version": 1,
   "about": "Catalogue des grandes chaînes : nom officiel, langue, et motif reconnu sur le nom NORMALISÉ (voir channels.py : majuscules, sans accents, sans émojis ni décorations ᴴᴰ/ᴿᴬᵂ, sans préfixe « FR: », sans qualité HD/4K/HEVC). Le premier motif qui correspond l'emporte : les plus précis d'abord. « countries » : pays de la chaîne (préfixe du nom ou de la catégorie) requis pour ce motif. $1 = numéro capturé.",
   "channels": [
-    {"match": "^CANAL\\+ LIVE (\\d{1,2})$", "id": "canalplus-live-$1", "name": "Canal+ Live $1", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ (SPORT )?360$", "id": "canalplus-sport-360", "name": "Canal+ Sport 360", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ SPORT 360 (\\d{1,2})$", "id": "canalplus-sport-360-$1", "name": "Canal+ Sport 360 $1", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ SPORTS?$", "id": "canalplus-sport", "name": "Canal+ Sport", "lang": "fr", "family": "canalplus", "countries": ["FR", "BE", "CH", "LU", "MC", null]},
-    {"match": "^CANAL\\+ SPORTS? (\\d)$", "id": "canalplus-sport-$1", "name": "Canal+ Sport $1", "lang": "fr", "family": "canalplus", "countries": ["FR", "BE", "CH", "LU", "MC", null]},
-    {"match": "^CANAL\\+ FOOT$", "id": "canalplus-foot", "name": "Canal+ Foot", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ PREMIER LEAGUE$", "id": "canalplus-premier-league", "name": "Canal+ Premier League", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ (FORMULA ?1|F1)$", "id": "canalplus-f1", "name": "Canal+ Formula 1", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ (MOTO ?GP)$", "id": "canalplus-motogp", "name": "Canal+ MotoGP", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+ LIGUE ?1$", "id": "canalplus-ligue1", "name": "Canal+ Ligue 1", "lang": "fr", "family": "canalplus"},
-    {"match": "^CANAL\\+$", "id": "canalplus", "name": "Canal+", "lang": "fr", "family": "canalplus", "countries": ["FR", "BE", "CH", "LU", "MC"]},
-
-    {"match": "^LIGUE ?1 ?\\+$", "id": "ligue1plus", "name": "Ligue 1+", "lang": "fr", "family": "ligue1plus"},
-    {"match": "^LIGUE ?1 ?\\+ ?(\\d{1,2})$", "id": "ligue1plus-$1", "name": "Ligue 1+ $1", "lang": "fr", "family": "ligue1plus"},
-
-    {"match": "^BEIN SPORTS? (\\d{1,2}) ENGLISH$", "id": "bein-en-$1", "name": "beIN Sports $1 English", "lang": "en", "family": "bein-mena"},
-    {"match": "^BEIN SPORTS? (\\d{1,2}) FRANCE$", "id": "bein-fr-$1", "name": "beIN Sports $1", "lang": "fr", "family": "bein-fr"},
-    {"match": "^BEIN SPORTS? (\\d{1,2})$", "id": "bein-fr-$1", "name": "beIN Sports $1", "lang": "fr", "family": "bein-fr", "countries": ["FR", "BE", "CH", "LU", "MC"]},
-    {"match": "^BEIN SPORTS? MAX (\\d{1,2})$", "id": "bein-fr-max-$1", "name": "beIN Sports Max $1", "lang": "fr", "family": "bein-fr", "countries": ["FR", "BE", "CH", "LU", "MC"]},
-    {"match": "^BEIN SPORTS? (\\d{1,2}) XTRA$", "id": "bein-xtra-$1", "name": "beIN Sports $1 Xtra", "lang": "ar", "family": "bein-mena"},
-    {"match": "^BEIN SPORTS? PREMIUM (\\d)$", "id": "bein-premium-$1", "name": "beIN Sports Premium $1", "lang": "ar", "family": "bein-mena"},
-    {"match": "^BEIN SPORTS? (\\d{1,2})$", "id": "bein-$1", "name": "beIN Sports $1", "lang": "ar", "family": "bein-mena", "countries": ["AR", "MA", "SA", "AE", "QA", "EG", "DZ", "TN", "KW", "BH", "OM", "JO", "LB", "IQ", null]},
-    {"match": "^BEIN SPORTS? MAX (\\d{1,2})$", "id": "bein-max-$1", "name": "beIN Sports Max $1", "lang": "ar", "family": "bein-mena", "countries": ["AR", "MA", "SA", "AE", "QA", "EG", "DZ", "TN", null]},
-    {"match": "^BEIN SPORTS? NEWS$", "id": "bein-news", "name": "beIN Sports News", "lang": "ar", "family": "bein-mena"},
-    {"match": "^BEIN SPORTS? AFC (\\d)$", "id": "bein-afc-$1", "name": "beIN Sports AFC $1", "lang": "ar", "family": "bein-mena"},
-
-    {"match": "^DAZN ?(\\d)$", "id": "dazn-fr-$1", "name": "DAZN $1", "lang": "fr", "family": "dazn-fr", "countries": ["FR"]},
-    {"match": "^DAZN$", "id": "dazn-fr-1", "name": "DAZN 1", "lang": "fr", "family": "dazn-fr", "countries": ["FR"]},
-    {"match": "^RMC SPORTS? (\\d{1,2})$", "id": "rmc-sport-$1", "name": "RMC Sport $1", "lang": "fr", "family": "rmc"},
-    {"match": "^RMC SPORTS? LIVE (\\d{1,2})$", "id": "rmc-sport-live-$1", "name": "RMC Sport Live $1", "lang": "fr", "family": "rmc"},
-    {"match": "^(LA CHAINE )?L ?EQUIPE( TV| 21)?$", "id": "lequipe", "name": "La chaîne L'Équipe", "lang": "fr", "family": "lequipe"},
-    {"match": "^EUROSPORT ?([12])$", "id": "eurosport-$1", "name": "Eurosport $1", "lang": "fr", "family": "eurosport", "countries": ["FR", "BE", "CH"]},
-    {"match": "^EUROSPORT 360 ?(\\d{1,2})$", "id": "eurosport-360-$1", "name": "Eurosport 360 $1", "lang": "fr", "family": "eurosport", "countries": ["FR", null]},
-    {"match": "^TF ?1$", "id": "tf1", "name": "TF1", "lang": "fr", "family": "tf1", "countries": ["FR", "BE", "CH", null]},
-    {"match": "^FRANCE ?2$", "id": "france2", "name": "France 2", "lang": "fr", "family": "francetv"},
-    {"match": "^FRANCE ?3$", "id": "france3", "name": "France 3", "lang": "fr", "family": "francetv"},
-    {"match": "^FRANCE ?4$", "id": "france4", "name": "France 4", "lang": "fr", "family": "francetv"},
-    {"match": "^M6$", "id": "m6", "name": "M6", "lang": "fr", "family": "m6", "countries": ["FR", "BE", "CH", null]},
-    {"match": "^W9$", "id": "w9", "name": "W9", "lang": "fr", "family": "m6"},
-    {"match": "^TMC$", "id": "tmc", "name": "TMC", "lang": "fr", "family": "tf1"},
-    {"match": "^(AMAZON )?PRIME VIDEO (SPORTS? )?LIGUE ?1$", "id": "prime-ligue1", "name": "Prime Video Ligue 1", "lang": "fr", "family": "prime-fr"},
-
-    {"match": "^TNT SPORTS? (\\d)$", "id": "tnt-sports-$1", "name": "TNT Sports $1", "lang": "en", "family": "tnt-uk", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^TNT SPORTS? ULTIMATE$", "id": "tnt-sports-ultimate", "name": "TNT Sports Ultimate", "lang": "en", "family": "tnt-uk"},
-    {"match": "^SKY SPORTS? MAIN EVENTS?$", "id": "sky-sports-main-event", "name": "Sky Sports Main Event", "lang": "en", "family": "sky-uk"},
-    {"match": "^SKY SPORTS? PREMIER LEAGUE$", "id": "sky-sports-premier-league", "name": "Sky Sports Premier League", "lang": "en", "family": "sky-uk", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^SKY SPORTS? (FOOTBALL|ACTION|ARENA|MIX|F1|GOLF|TENNIS|CRICKET|RACING|NEWS|PLUS|\\+)$", "id": "sky-sports-$1", "name": "Sky Sports $1", "lang": "en", "family": "sky-uk", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^(AMAZON )?PRIME (VIDEO )?(SPORTS? )?(\\d{1,2})$", "id": "prime-uk-$4", "name": "Prime Video Sport $4", "lang": "en", "family": "prime-uk", "countries": ["UK", "GB", "IE"]},
-    {"match": "^PREMIER SPORTS? (\\d)$", "id": "premier-sports-$1", "name": "Premier Sports $1", "lang": "en", "family": "premier-sports", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^LALIGA TV$", "id": "laliga-tv", "name": "LaLiga TV", "lang": "en", "family": "premier-sports"},
-    {"match": "^BBC (ONE|TWO)$", "id": "bbc-$1", "name": "BBC $1", "lang": "en", "family": "bbc", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^ITV ?1$", "id": "itv1", "name": "ITV1", "lang": "en", "family": "itv", "countries": ["UK", "GB", "IE", null]},
-    {"match": "^ESPN$", "id": "espn", "name": "ESPN", "lang": "en", "family": "espn-us", "countries": ["US", "CA"]},
-    {"match": "^ESPN ?2$", "id": "espn2", "name": "ESPN2", "lang": "en", "family": "espn-us", "countries": ["US", "CA"]},
-    {"match": "^CBS SPORTS?( NETWORK)?$", "id": "cbs-sports", "name": "CBS Sports Network", "lang": "en", "family": "cbs-us", "countries": ["US", "CA", null]},
-    {"match": "^USA NETWORK$", "id": "usa-network", "name": "USA Network", "lang": "en", "family": "nbc-us"},
-
-    {"match": "^(ARRYADIA|ARRIADIA|AL ?RIYADIA)( TNT)?$", "id": "arryadia", "name": "Arryadia", "lang": "ar", "family": "snrt"},
-    {"match": "^(ARRYADIA|ARRIADIA|AL ?RIYADIA) (\\d)$", "id": "arryadia-$2", "name": "Arryadia $2", "lang": "ar", "family": "snrt"},
-    {"match": "^(AL ?AOULA|ALAOULA)$", "id": "al-aoula", "name": "Al Aoula", "lang": "ar", "family": "snrt"},
-    {"match": "^2M( MAROC| MONDE)?$", "id": "2m", "name": "2M", "lang": "ar", "family": "2m"},
-    {"match": "^SSC ?(SPORTS? )?(\\d)$", "id": "ssc-$2", "name": "SSC Sport $2", "lang": "ar", "family": "ssc"},
-    {"match": "^AD SPORTS? PREMIUM ?(\\d)$", "id": "ad-sports-premium-$1", "name": "AD Sports Premium $1", "lang": "ar", "family": "ad-sports"},
-    {"match": "^AD SPORTS? (\\d)$", "id": "ad-sports-$1", "name": "AD Sports $1", "lang": "ar", "family": "ad-sports"},
-    {"match": "^AL ?KASS (ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|\\d)$", "id": "alkass-$1", "name": "Alkass $1", "lang": "ar", "family": "alkass"},
-    {"match": "^(ABU DHABI SPORTS?) (\\d)$", "id": "ad-sports-$2", "name": "AD Sports $2", "lang": "ar", "family": "ad-sports"}
+    {
+      "match": "^CANAL\\+ LIVE (\\d{1,2})$",
+      "id": "canalplus-live-$1",
+      "name": "Canal+ Live $1",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ (SPORT )?360$",
+      "id": "canalplus-sport-360",
+      "name": "Canal+ Sport 360",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ SPORT 360 (\\d{1,2})$",
+      "id": "canalplus-sport-360-$1",
+      "name": "Canal+ Sport 360 $1",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ SPORTS?$",
+      "id": "canalplus-sport",
+      "name": "Canal+ Sport",
+      "lang": "fr",
+      "family": "canalplus",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        "LU",
+        "MC",
+        null
+      ]
+    },
+    {
+      "match": "^CANAL\\+ SPORTS? (\\d)$",
+      "id": "canalplus-sport-$1",
+      "name": "Canal+ Sport $1",
+      "lang": "fr",
+      "family": "canalplus",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        "LU",
+        "MC",
+        null
+      ]
+    },
+    {
+      "match": "^CANAL\\+ FOOT$",
+      "id": "canalplus-foot",
+      "name": "Canal+ Foot",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ PREMIER LEAGUE$",
+      "id": "canalplus-premier-league",
+      "name": "Canal+ Premier League",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ (FORMULA ?1|F1)$",
+      "id": "canalplus-f1",
+      "name": "Canal+ Formula 1",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ (MOTO ?GP)$",
+      "id": "canalplus-motogp",
+      "name": "Canal+ MotoGP",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+ LIGUE ?1$",
+      "id": "canalplus-ligue1",
+      "name": "Canal+ Ligue 1",
+      "lang": "fr",
+      "family": "canalplus"
+    },
+    {
+      "match": "^CANAL\\+$",
+      "id": "canalplus",
+      "name": "Canal+",
+      "lang": "fr",
+      "family": "canalplus",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        "LU",
+        "MC"
+      ]
+    },
+    {
+      "match": "^LIGUE ?1 ?\\+$",
+      "id": "ligue1plus",
+      "name": "Ligue 1+",
+      "lang": "fr",
+      "family": "ligue1plus"
+    },
+    {
+      "match": "^LIGUE ?1 ?\\+ ?(\\d{1,2})$",
+      "id": "ligue1plus-$1",
+      "name": "Ligue 1+ $1",
+      "lang": "fr",
+      "family": "ligue1plus"
+    },
+    {
+      "match": "^BEIN SPORTS? (\\d{1,2}) ENGLISH$",
+      "id": "bein-en-$1",
+      "name": "beIN Sports $1 English",
+      "lang": "en",
+      "family": "bein-mena"
+    },
+    {
+      "match": "^BEIN SPORTS? (\\d{1,2}) FRANCE$",
+      "id": "bein-fr-$1",
+      "name": "beIN Sports $1",
+      "lang": "fr",
+      "family": "bein-fr"
+    },
+    {
+      "match": "^BEIN SPORTS? (\\d{1,2})$",
+      "id": "bein-fr-$1",
+      "name": "beIN Sports $1",
+      "lang": "fr",
+      "family": "bein-fr",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        "LU",
+        "MC"
+      ]
+    },
+    {
+      "match": "^BEIN SPORTS? MAX (\\d{1,2})$",
+      "id": "bein-fr-max-$1",
+      "name": "beIN Sports Max $1",
+      "lang": "fr",
+      "family": "bein-fr",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        "LU",
+        "MC"
+      ]
+    },
+    {
+      "match": "^BEIN SPORTS? (\\d{1,2}) XTRA$",
+      "id": "bein-xtra-$1",
+      "name": "beIN Sports $1 Xtra",
+      "lang": "ar",
+      "family": "bein-mena"
+    },
+    {
+      "match": "^BEIN SPORTS? PREMIUM (\\d)$",
+      "id": "bein-premium-$1",
+      "name": "beIN Sports Premium $1",
+      "lang": "ar",
+      "family": "bein-mena"
+    },
+    {
+      "match": "^BEIN SPORTS? (\\d{1,2})$",
+      "id": "bein-$1",
+      "name": "beIN Sports $1",
+      "lang": "ar",
+      "family": "bein-mena",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^BEIN SPORTS? MAX (\\d{1,2})$",
+      "id": "bein-max-$1",
+      "name": "beIN Sports Max $1",
+      "lang": "ar",
+      "family": "bein-mena",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        null
+      ]
+    },
+    {
+      "match": "^BEIN SPORTS? NEWS$",
+      "id": "bein-news",
+      "name": "beIN Sports News",
+      "lang": "ar",
+      "family": "bein-mena"
+    },
+    {
+      "match": "^BEIN SPORTS? AFC (\\d)$",
+      "id": "bein-afc-$1",
+      "name": "beIN Sports AFC $1",
+      "lang": "ar",
+      "family": "bein-mena"
+    },
+    {
+      "match": "^DAZN ?(\\d)$",
+      "id": "dazn-fr-$1",
+      "name": "DAZN $1",
+      "lang": "fr",
+      "family": "dazn-fr",
+      "countries": [
+        "FR"
+      ]
+    },
+    {
+      "match": "^DAZN$",
+      "id": "dazn-fr-1",
+      "name": "DAZN 1",
+      "lang": "fr",
+      "family": "dazn-fr",
+      "countries": [
+        "FR"
+      ]
+    },
+    {
+      "match": "^RMC SPORTS? (\\d{1,2})$",
+      "id": "rmc-sport-$1",
+      "name": "RMC Sport $1",
+      "lang": "fr",
+      "family": "rmc"
+    },
+    {
+      "match": "^RMC SPORTS? LIVE (\\d{1,2})$",
+      "id": "rmc-sport-live-$1",
+      "name": "RMC Sport Live $1",
+      "lang": "fr",
+      "family": "rmc"
+    },
+    {
+      "match": "^(LA CHAINE )?L ?EQUIPE( TV| 21)?$",
+      "id": "lequipe",
+      "name": "La chaîne L'Équipe",
+      "lang": "fr",
+      "family": "lequipe"
+    },
+    {
+      "match": "^EUROSPORT ?([12])$",
+      "id": "eurosport-$1",
+      "name": "Eurosport $1",
+      "lang": "fr",
+      "family": "eurosport",
+      "countries": [
+        "FR",
+        "BE",
+        "CH"
+      ]
+    },
+    {
+      "match": "^EUROSPORT 360 ?(\\d{1,2})$",
+      "id": "eurosport-360-$1",
+      "name": "Eurosport 360 $1",
+      "lang": "fr",
+      "family": "eurosport",
+      "countries": [
+        "FR",
+        null
+      ]
+    },
+    {
+      "match": "^TF ?1$",
+      "id": "tf1",
+      "name": "TF1",
+      "lang": "fr",
+      "family": "tf1",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        null
+      ]
+    },
+    {
+      "match": "^FRANCE ?2$",
+      "id": "france2",
+      "name": "France 2",
+      "lang": "fr",
+      "family": "francetv"
+    },
+    {
+      "match": "^FRANCE ?3$",
+      "id": "france3",
+      "name": "France 3",
+      "lang": "fr",
+      "family": "francetv"
+    },
+    {
+      "match": "^FRANCE ?4$",
+      "id": "france4",
+      "name": "France 4",
+      "lang": "fr",
+      "family": "francetv"
+    },
+    {
+      "match": "^M6$",
+      "id": "m6",
+      "name": "M6",
+      "lang": "fr",
+      "family": "m6",
+      "countries": [
+        "FR",
+        "BE",
+        "CH",
+        null
+      ]
+    },
+    {
+      "match": "^W9$",
+      "id": "w9",
+      "name": "W9",
+      "lang": "fr",
+      "family": "m6"
+    },
+    {
+      "match": "^TMC$",
+      "id": "tmc",
+      "name": "TMC",
+      "lang": "fr",
+      "family": "tf1"
+    },
+    {
+      "match": "^(AMAZON )?PRIME VIDEO (SPORTS? )?LIGUE ?1$",
+      "id": "prime-ligue1",
+      "name": "Prime Video Ligue 1",
+      "lang": "fr",
+      "family": "prime-fr"
+    },
+    {
+      "match": "^TNT SPORTS? (\\d)$",
+      "id": "tnt-sports-$1",
+      "name": "TNT Sports $1",
+      "lang": "en",
+      "family": "tnt-uk",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^TNT SPORTS? ULTIMATE$",
+      "id": "tnt-sports-ultimate",
+      "name": "TNT Sports Ultimate",
+      "lang": "en",
+      "family": "tnt-uk"
+    },
+    {
+      "match": "^SKY SPORTS? MAIN EVENTS?$",
+      "id": "sky-sports-main-event",
+      "name": "Sky Sports Main Event",
+      "lang": "en",
+      "family": "sky-uk"
+    },
+    {
+      "match": "^SKY SPORTS? PREMIER LEAGUE$",
+      "id": "sky-sports-premier-league",
+      "name": "Sky Sports Premier League",
+      "lang": "en",
+      "family": "sky-uk",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^SKY SPORTS? (FOOTBALL|ACTION|ARENA|MIX|F1|GOLF|TENNIS|CRICKET|RACING|NEWS|PLUS|\\+)$",
+      "id": "sky-sports-$1",
+      "name": "Sky Sports $1",
+      "lang": "en",
+      "family": "sky-uk",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^(AMAZON )?PRIME (VIDEO )?(SPORTS? )?(\\d{1,2})$",
+      "id": "prime-uk-$4",
+      "name": "Prime Video Sport $4",
+      "lang": "en",
+      "family": "prime-uk",
+      "countries": [
+        "UK",
+        "GB",
+        "IE"
+      ]
+    },
+    {
+      "match": "^PREMIER SPORTS? (\\d)$",
+      "id": "premier-sports-$1",
+      "name": "Premier Sports $1",
+      "lang": "en",
+      "family": "premier-sports",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^LALIGA TV$",
+      "id": "laliga-tv",
+      "name": "LaLiga TV",
+      "lang": "en",
+      "family": "premier-sports"
+    },
+    {
+      "match": "^BBC (ONE|TWO)$",
+      "id": "bbc-$1",
+      "name": "BBC $1",
+      "lang": "en",
+      "family": "bbc",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^ITV ?1$",
+      "id": "itv1",
+      "name": "ITV1",
+      "lang": "en",
+      "family": "itv",
+      "countries": [
+        "UK",
+        "GB",
+        "IE",
+        null
+      ]
+    },
+    {
+      "match": "^ESPN$",
+      "id": "espn",
+      "name": "ESPN",
+      "lang": "en",
+      "family": "espn-us",
+      "countries": [
+        "US",
+        "CA"
+      ]
+    },
+    {
+      "match": "^ESPN ?2$",
+      "id": "espn2",
+      "name": "ESPN2",
+      "lang": "en",
+      "family": "espn-us",
+      "countries": [
+        "US",
+        "CA"
+      ]
+    },
+    {
+      "match": "^CBS SPORTS?( NETWORK)?$",
+      "id": "cbs-sports",
+      "name": "CBS Sports Network",
+      "lang": "en",
+      "family": "cbs-us",
+      "countries": [
+        "US",
+        "CA",
+        null
+      ]
+    },
+    {
+      "match": "^USA NETWORK$",
+      "id": "usa-network",
+      "name": "USA Network",
+      "lang": "en",
+      "family": "nbc-us"
+    },
+    {
+      "match": "^(ARRYADIA|ARRIADIA|AL ?RIYADIA)( TNT)?$",
+      "id": "arryadia",
+      "name": "Arryadia",
+      "lang": "ar",
+      "family": "snrt"
+    },
+    {
+      "match": "^(ARRYADIA|ARRIADIA|AL ?RIYADIA) (\\d)$",
+      "id": "arryadia-$2",
+      "name": "Arryadia $2",
+      "lang": "ar",
+      "family": "snrt"
+    },
+    {
+      "match": "^(AL ?AOULA|ALAOULA)$",
+      "id": "al-aoula",
+      "name": "Al Aoula",
+      "lang": "ar",
+      "family": "snrt"
+    },
+    {
+      "match": "^2M( MAROC| MONDE)?$",
+      "id": "2m",
+      "name": "2M",
+      "lang": "ar",
+      "family": "2m"
+    },
+    {
+      "match": "^SSC ?(SPORTS? )?(\\d)$",
+      "id": "ssc-$2",
+      "name": "SSC Sport $2",
+      "lang": "ar",
+      "family": "ssc"
+    },
+    {
+      "match": "^AD SPORTS? PREMIUM ?(\\d)$",
+      "id": "ad-sports-premium-$1",
+      "name": "AD Sports Premium $1",
+      "lang": "ar",
+      "family": "ad-sports"
+    },
+    {
+      "match": "^AD SPORTS? (\\d)$",
+      "id": "ad-sports-$1",
+      "name": "AD Sports $1",
+      "lang": "ar",
+      "family": "ad-sports"
+    },
+    {
+      "match": "^AL ?KASS (ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|\\d)$",
+      "id": "alkass-$1",
+      "name": "Alkass $1",
+      "lang": "ar",
+      "family": "alkass"
+    },
+    {
+      "match": "^(ABU DHABI SPORTS?) (\\d)$",
+      "id": "ad-sports-$2",
+      "name": "AD Sports $2",
+      "lang": "ar",
+      "family": "ad-sports"
+    },
+    {
+      "match": "^THMANYAH (\\d)$",
+      "id": "thmanyah-$1",
+      "name": "Thmanyah $1",
+      "lang": "ar",
+      "family": "thmanyah"
+    },
+    {
+      "match": "^(STC )?(TV )?THMANYAH$",
+      "id": "thmanyah",
+      "name": "Thmanyah",
+      "lang": "ar",
+      "family": "thmanyah"
+    },
+    {
+      "match": "^THMANYAH MINASA (\\d)( (MULTI )?AUDIO)?$",
+      "id": "thmanyah-minasa-$1",
+      "name": "Thmanyah Minasa $1",
+      "lang": "ar",
+      "family": "thmanyah"
+    },
+    {
+      "match": "^STARZ ?PLAY SPORTS? (\\d)$",
+      "id": "starzplay-sports-$1",
+      "name": "Starzplay Sports $1",
+      "lang": "ar",
+      "family": "starzplay"
+    },
+    {
+      "match": "^STARZ ?PLAY SPORTS?$",
+      "id": "starzplay-sports-1",
+      "name": "Starzplay Sports 1",
+      "lang": "ar",
+      "family": "starzplay"
+    },
+    {
+      "match": "^AD SPORTS? SERIE?A (\\d)$",
+      "id": "ad-sports-seriea-$1",
+      "name": "AD Sports Serie A $1",
+      "lang": "ar",
+      "family": "ad-sports"
+    },
+    {
+      "match": "^YAS SPORTS?$",
+      "id": "yas-sports",
+      "name": "Yas Sports",
+      "lang": "ar",
+      "family": "ad-sports"
+    },
+    {
+      "match": "^DUBAI SPORTS? (\\d)$",
+      "id": "dubai-sports-$1",
+      "name": "Dubai Sports $1",
+      "lang": "ar",
+      "family": "dubai"
+    },
+    {
+      "match": "^DUBAI RACING (\\d)( TV)?$",
+      "id": "dubai-racing-$1",
+      "name": "Dubai Racing $1",
+      "lang": "ar",
+      "family": "dubai"
+    },
+    {
+      "match": "^SHARJAH SPORTS?( TV)?$",
+      "id": "sharjah-sports",
+      "name": "Sharjah Sports",
+      "lang": "ar",
+      "family": "sharjah"
+    },
+    {
+      "match": "^SHARJAH SPORTS? (\\d)$",
+      "id": "sharjah-sports-$1",
+      "name": "Sharjah Sports $1",
+      "lang": "ar",
+      "family": "sharjah"
+    },
+    {
+      "match": "^ON (TIME )?SPORTS?( TV)?$",
+      "id": "on-sport",
+      "name": "ON Sport",
+      "lang": "ar",
+      "family": "on-sport",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^ON (TIME )?SPORTS? (\\d)$",
+      "id": "on-sport-$2",
+      "name": "ON Sport $2",
+      "lang": "ar",
+      "family": "on-sport",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^ON SPORTS? (MAX|PLUS)$",
+      "id": "on-sport-$1",
+      "name": "ON Sport $1",
+      "lang": "ar",
+      "family": "on-sport",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^(SAUDI )?KSA SPORTS? (\\d)$",
+      "id": "ksa-sports-$2",
+      "name": "KSA Sports $2",
+      "lang": "ar",
+      "family": "ksa"
+    },
+    {
+      "match": "^(KUWAIT|BAHRAIN|OMAN|JORDAN|QATAR|IRAQ|LIBYA) SPORTS?( TV)?$",
+      "id": "$1-sport",
+      "name": "$1 Sport",
+      "lang": "ar",
+      "family": "gulf-sport"
+    },
+    {
+      "match": "^(KUWAIT|BAHRAIN|OMAN|JORDAN|QATAR|IRAQ|LIBYA) SPORTS?( TV)? (\\d)$",
+      "id": "$1-sport-$3",
+      "name": "$1 Sport $3",
+      "lang": "ar",
+      "family": "gulf-sport"
+    },
+    {
+      "match": "^MBC ACTION$",
+      "id": "mbc-action",
+      "name": "MBC Action",
+      "lang": "ar",
+      "family": "mbc",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^MBC ?1$",
+      "id": "mbc1",
+      "name": "MBC 1",
+      "lang": "ar",
+      "family": "mbc",
+      "countries": [
+        "AR",
+        "MA",
+        "SA",
+        "AE",
+        "QA",
+        "EG",
+        "DZ",
+        "TN",
+        "KW",
+        "BH",
+        "OM",
+        "JO",
+        "LB",
+        "IQ",
+        null
+      ]
+    },
+    {
+      "match": "^(ARRYADIA|ARRIADIA|AL ?RIYADIA) LIVE$",
+      "id": "arryadia-live",
+      "name": "Arryadia Live",
+      "lang": "ar",
+      "family": "snrt"
+    }
   ]
 }

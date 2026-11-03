@@ -41,6 +41,9 @@ FOOTBALL = {
 # TheSportsDB : identifiant de ligue → (clé des droits TV, sport, libellé du sport, compétition, durée en heures)
 TSDB = {
     4520: ("botola", "football", "Football", "Botola Pro", 2),
+    4668: ("roshn", "football", "Football", "Saudi Pro League", 2),
+    4829: ("egypt", "football", "Football", "Championnat d'Égypte", 2),
+    4720: ("caf", "football", "Football", "Ligue des champions de la CAF", 2),
     4387: ("nba", "basketball", "Basketball", "NBA", 2.5),
     4391: ("nfl", "american", "Football américain", "NFL", 3.5),
     4443: ("ufc", "mma", "UFC & MMA", "UFC", 5),
@@ -122,7 +125,13 @@ def thesportsdb():
     for lid, (league, sport, sport_label, competition, hours) in TSDB.items():
         time.sleep(2.5)  # clé gratuite : 30 requêtes par minute au plus
         try:
-            events = get(f"https://www.thesportsdb.com/api/v1/json/{key}/eventsnextleague.php?id={lid}").get("events") or []
+            # Saison entière (tous les matchs à venir) ; sinon, avec la clé gratuite, seulement le prochain match.
+            season = f"{NOW.year}-{NOW.year + 1}" if NOW.month >= 7 else f"{NOW.year - 1}-{NOW.year}"
+            events = [e for e in get(f"https://www.thesportsdb.com/api/v1/json/{key}/eventsseason.php?id={lid}&s={season}").get("events") or []
+                      if (e.get("strTimestamp") or "") >= NOW.strftime("%Y-%m-%dT%H:%M")]
+            if not events:
+                time.sleep(2.5)
+                events = get(f"https://www.thesportsdb.com/api/v1/json/{key}/eventsnextleague.php?id={lid}").get("events") or []
         except Exception as e:  # une ligue en panne ne bloque pas le fichier
             print(f"TheSportsDB {competition} : {e}", file=sys.stderr)
             continue
