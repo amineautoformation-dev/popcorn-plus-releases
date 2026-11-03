@@ -85,6 +85,8 @@ def football():
         out.append({
             "id": f"fd-{m['id']}", "league": league, "sport": "football", "sportLabel": "Football", "competition": name,
             "home": home.get("shortName") or home.get("name"), "away": away.get("shortName") or away.get("name"),
+            # Noms complets et abréviations : servent à retrouver le match dans les guides TV et les chaînes « événement ».
+            "homeNames": [n for n in (home.get("name"), home.get("tla")) if n], "awayNames": [n for n in (away.get("name"), away.get("tla")) if n],
             "homeBadge": home.get("crest"), "awayBadge": away.get("crest"),
             "start": ms(start), "end": ms(start + timedelta(hours=2)), "stage": stage,
         })
@@ -169,17 +171,31 @@ def tennis():
 
 
 def main(rights_path, out_path):
+    here = os.path.dirname(os.path.abspath(__file__))
     events = []
     for source in (football, formula1, thesportsdb, tennis):
         try:
             events += source()
         except Exception as e:
             print(f"{source.__name__} : {e}", file=sys.stderr)
+    # Catalogue des grandes chaînes et chaîne exacte de chaque match d'après le guide TV français.
+    sys.path.insert(0, here)
+    import channels as catalogue
+    import tvguide
+    with open(os.path.join(here, "channels.json"), encoding="utf-8") as f:
+        channel_list = [{k: v for k, v in c.items() if k != "rx"} for c in json.load(f)["channels"]]
+    with open(os.path.join(here, "tv_rights.json"), encoding="utf-8") as f:
+        tv_rights = {k: v for k, v in json.load(f).items() if k != "about"}
+    try:
+        print(f"guide TV : {tvguide.add_tv(events, catalogue.load(os.path.join(here, 'channels.json')))} matchs avec leur chaîne française")
+    except Exception as e:
+        print(f"guide TV : {e}", file=sys.stderr)
     events = [{k: v for k, v in e.items() if v is not None} for e in sorted(events, key=lambda e: e["start"])]
     with open(rights_path, encoding="utf-8") as f:
         rights = json.load(f)
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump({"version": 1, "generated": ms(NOW), "events": events, "rights": rights}, f, ensure_ascii=False, separators=(",", ":"))
+        json.dump({"version": 1, "generated": ms(NOW), "events": events, "rights": rights,
+                   "channels": channel_list, "tvRights": tv_rights}, f, ensure_ascii=False, separators=(",", ":"))
     print(f"{len(events)} événements écrits dans {out_path}")
 
 
