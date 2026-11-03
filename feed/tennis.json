@@ -1,0 +1,27 @@
+{
+  "_lisezmoi": "Calendrier des grands tournois (source : calendriers officiels ATP/WTA). Dates locales, fin incluse. daily = heure locale du début des matchs, hours = durée de la journée de jeu, rights = clé de rights.json. À compléter chaque automne quand l'ATP publie la saison suivante (Coupe Davis 2027 : dates à confirmer).",
+  "tournaments": [
+    {"name": "Rolex Paris Masters", "category": "Masters 1000", "start": "2026-11-02", "end": "2026-11-08", "tz": "Europe/Paris", "daily": "11:00", "hours": 11, "rights": "tennis_fr_tv", "featured": true},
+    {"name": "Finales WTA", "category": "Masters féminin", "start": "2026-11-08", "end": "2026-11-15", "tz": "America/Los_Angeles", "daily": "11:00", "hours": 12, "rights": "tennis"},
+    {"name": "Nitto ATP Finals", "category": "Masters de fin d'année", "start": "2026-11-15", "end": "2026-11-22", "tz": "Europe/Rome", "daily": "12:00", "hours": 10, "rights": "tennis", "featured": true},
+    {"name": "Coupe Davis", "category": "Phase finale", "start": "2026-11-24", "end": "2026-11-29", "tz": "Europe/Rome", "daily": "11:00", "hours": 10, "rights": "tennis"},
+    {"name": "United Cup", "category": "Par équipes", "start": "2027-01-01", "end": "2027-01-10", "tz": "Australia/Sydney", "daily": "10:00", "hours": 11, "rights": "tennis"},
+    {"name": "Open d'Australie", "category": "Grand Chelem", "start": "2027-01-17", "end": "2027-01-31", "tz": "Australia/Melbourne", "daily": "11:00", "hours": 12, "rights": "tennis", "featured": true},
+    {"name": "Qatar ExxonMobil Open", "category": "ATP 500", "start": "2027-02-15", "end": "2027-02-20", "tz": "Asia/Qatar", "daily": "14:00", "hours": 9, "rights": "tennis"},
+    {"name": "Dubai Duty Free Tennis Championships", "category": "ATP 500", "start": "2027-02-22", "end": "2027-02-27", "tz": "Asia/Dubai", "daily": "14:00", "hours": 9, "rights": "tennis"},
+    {"name": "BNP Paribas Open", "category": "Masters 1000", "start": "2027-03-03", "end": "2027-03-14", "tz": "America/Los_Angeles", "daily": "11:00", "hours": 12, "rights": "tennis"},
+    {"name": "Miami Open", "category": "Masters 1000", "start": "2027-03-17", "end": "2027-03-28", "tz": "America/New_York", "daily": "11:00", "hours": 12, "rights": "tennis"},
+    {"name": "Grand Prix Hassan II", "category": "ATP 250 · Marrakech", "start": "2027-03-29", "end": "2027-04-04", "tz": "Africa/Casablanca", "daily": "12:00", "hours": 8, "rights": "tennis_ma"},
+    {"name": "Rolex Monte-Carlo Masters", "category": "Masters 1000", "start": "2027-04-04", "end": "2027-04-11", "tz": "Europe/Monaco", "daily": "11:00", "hours": 9, "rights": "tennis"},
+    {"name": "Mutua Madrid Open", "category": "Masters 1000", "start": "2027-04-21", "end": "2027-05-02", "tz": "Europe/Madrid", "daily": "11:00", "hours": 11, "rights": "tennis"},
+    {"name": "Internazionali d'Italia", "category": "Masters 1000", "start": "2027-05-05", "end": "2027-05-16", "tz": "Europe/Rome", "daily": "11:00", "hours": 11, "rights": "tennis"},
+    {"name": "Roland-Garros", "category": "Grand Chelem", "start": "2027-05-23", "end": "2027-06-06", "tz": "Europe/Paris", "daily": "11:00", "hours": 10, "rights": "rg", "featured": true},
+    {"name": "Wimbledon", "category": "Grand Chelem", "start": "2027-06-28", "end": "2027-07-11", "tz": "Europe/London", "daily": "11:00", "hours": 10, "rights": "wimbledon", "featured": true},
+    {"name": "National Bank Open", "category": "Masters 1000", "start": "2027-08-01", "end": "2027-08-12", "tz": "America/Toronto", "daily": "11:00", "hours": 12, "rights": "tennis"},
+    {"name": "Cincinnati Open", "category": "Masters 1000", "start": "2027-08-12", "end": "2027-08-22", "tz": "America/New_York", "daily": "11:00", "hours": 12, "rights": "tennis"},
+    {"name": "US Open", "category": "Grand Chelem", "start": "2027-08-29", "end": "2027-09-12", "tz": "America/New_York", "daily": "11:00", "hours": 12, "rights": "tennis", "featured": true},
+    {"name": "Rolex Shanghai Masters", "category": "Masters 1000", "start": "2027-10-06", "end": "2027-10-17", "tz": "Asia/Shanghai", "daily": "12:00", "hours": 10, "rights": "tennis"},
+    {"name": "Rolex Paris Masters", "category": "Masters 1000", "start": "2027-11-01", "end": "2027-11-07", "tz": "Europe/Paris", "daily": "11:00", "hours": 11, "rights": "tennis", "featured": true},
+    {"name": "Nitto ATP Finals", "category": "Masters de fin d'année", "start": "2027-11-14", "end": "2027-11-21", "tz": "Europe/Rome", "daily": "12:00", "hours": 10, "rights": "tennis", "featured": true}
+  ]
+}

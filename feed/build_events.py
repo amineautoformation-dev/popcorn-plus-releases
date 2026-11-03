@@ -9,7 +9,8 @@ TV (rights), embarquée ici pour pouvoir la corriger sans publier une nouvelle v
 Sources (sans ESPN, cf. popcornautonomeproject/03-conformite.md) :
   - football-data.org (clé gratuite, variable FOOTBALL_DATA_TOKEN) : 5 grands championnats et Ligue des champions ;
   - Jolpica (sans clé) : Formule 1 ;
-  - TheSportsDB (clé TSDB_KEY, « 123 » par défaut, gratuite et limitée) : Botola Pro, NBA, NFL, UFC, MotoGP.
+  - TheSportsDB (clé TSDB_KEY, « 123 » par défaut, gratuite et limitée) : Botola Pro, NBA, NFL, UFC, MotoGP ;
+  - tennis.json (tenu à la main d'après les calendriers officiels ATP/WTA) : un événement par jour de grand tournoi.
 Aucun score n'est lu ni publié.
 
 Usage : python3 build_events.py rights.json events.json
@@ -139,9 +140,37 @@ def thesportsdb():
     return out
 
 
+def tennis():
+    """Un événement par journée de grand tournoi (heure locale du tournoi), « Jour N », puis demi-finales et finale."""
+    from zoneinfo import ZoneInfo
+    from datetime import date, time as dtime
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tennis.json")
+    with open(path, encoding="utf-8") as f:
+        tournaments = json.load(f)["tournaments"]
+    out = []
+    for t in tournaments:
+        first, last = date.fromisoformat(t["start"]), date.fromisoformat(t["end"])
+        hh, mm = map(int, t["daily"].split(":"))
+        day, n = first, 1
+        while day <= last:
+            start = datetime.combine(day, dtime(hh, mm), ZoneInfo(t["tz"])).astimezone(timezone.utc)
+            end = start + timedelta(hours=t["hours"])
+            if end >= NOW and start <= UNTIL:
+                stage = "Finale" if day == last else "Demi-finales" if day == last - timedelta(days=1) else f"Jour {n}"
+                out.append({
+                    "id": f"tennis-{t['start']}-{t['name']}-{day}".replace(" ", "-").lower(), "league": t["rights"],
+                    "sport": "tennis", "sportLabel": "Tennis", "competition": t["name"], "home": t["name"], "away": None,
+                    "start": ms(start), "end": ms(end), "stage": f"{stage} · {t['category']}",
+                    "featured": True if t.get("featured") else None,
+                })
+            day += timedelta(days=1)
+            n += 1
+    return out
+
+
 def main(rights_path, out_path):
     events = []
-    for source in (football, formula1, thesportsdb):
+    for source in (football, formula1, thesportsdb, tennis):
         try:
             events += source()
         except Exception as e:

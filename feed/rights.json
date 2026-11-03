@@ -1,780 +1,838 @@
 {
- "ucl": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT|LIVE\\s*1|LIVE)?\\b",
-   "label": "Diffuseur Ligue des Champions",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|PREMIUM\\s*1)?\\b",
-   "label": "Diffuseur Ligue des Champions",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur Ligue des Champions",
-   "max": 2
-  }
- ],
- "uel": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT(\\s*360)?|LIVE)?\\b",
-   "label": "Diffuseur Ligue Europa",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[123]?\\b",
-   "label": "Diffuseur Ligue Europa",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[123]\\b",
-   "label": "Diffuseur Ligue Europa",
-   "max": 2
-  }
- ],
- "uecl": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT(\\s*360)?|LIVE)?\\b",
-   "label": "Diffuseur Ligue Conférence",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[1234]?\\b",
-   "label": "Diffuseur Ligue Conférence",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[1234]\\b",
-   "label": "Diffuseur Ligue Conférence",
-   "max": 2
-  }
- ],
- "supercup": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT)?\\b",
-   "label": "Diffuseur Supercoupe d'Europe",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]?\\b",
-   "label": "Diffuseur Supercoupe d'Europe",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*1\\b",
-   "label": "Diffuseur Supercoupe d'Europe",
-   "max": 2
-  }
- ],
- "ligue1": [
-  {
-   "country": "FR",
-   "pattern": "\\b(DAZN\\s*[12]?|BEIN\\s*SPORTS?\\s*1|LIGUE\\s*1)\\b",
-   "label": "Diffuseur Ligue 1",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[124]?\\b",
-   "label": "Diffuseur Ligue 1",
-   "max": 2
-  }
- ],
- "epl": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(FOOT|PREMIER\\s*LEAGUE|SPORT\\s*360)?\\b",
-   "label": "Diffuseur Premier League",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
-   "label": "Diffuseur Premier League",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(SKY\\s*SPORTS?\\s*(PREMIER\\s*LEAGUE|MAIN\\s*EVENT)|TNT\\s*SPORTS?\\s*1)\\b",
-   "label": "Diffuseur Premier League",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(USA\\s*NETWORK|NBC)\\b",
-   "label": "Diffuseur Premier League",
-   "max": 2
-  }
- ],
- "laliga": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur LaLiga",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[13]\\b",
-   "label": "Diffuseur LaLiga",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(PREMIER\\s*SPORTS?\\s*1|LALIGA\\s*TV)\\b",
-   "label": "Diffuseur LaLiga",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN(\\s*DEPORTES|\\s*2)?\\b",
-   "label": "Diffuseur LaLiga",
-   "max": 2
-  }
- ],
- "seriea": [
-  {
-   "country": "FR",
-   "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
-   "label": "Diffuseur Serie A",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\b(AD\\s*SPORTS?\\s*(PREMIUM)?\\s*[12]|STARZ\\s*PLAY)\\b",
-   "label": "Diffuseur Serie A",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur Serie A",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bCBS\\s*SPORTS?\\b",
-   "label": "Diffuseur Serie A",
-   "max": 2
-  }
- ],
- "bundesliga": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur Bundesliga",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*5?\\b",
-   "label": "Diffuseur Bundesliga",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bSKY\\s*SPORTS?\\s*(FOOTBALL|MIX)\\b",
-   "label": "Diffuseur Bundesliga",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur Bundesliga",
-   "max": 2
-  }
- ],
- "roshn": [
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*(EXTRA\\s*)?[123]?\\b",
-   "label": "Diffuseur Roshn League",
-   "max": 2
-  },
-  {
-   "country": "FR",
-   "pattern": "\\b(CANAL\\+\\s*(FOOT|SPORT\\s*360)|DAZN\\s*1?)\\b",
-   "label": "Diffuseur Roshn League",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bDAZN\\s*1?\\b",
-   "label": "Diffuseur Roshn League",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bFOX\\s*(SOCCER|DEPORTES)\\b",
-   "label": "Diffuseur Roshn League",
-   "max": 2
-  }
- ],
- "kingscup": [
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*(EXTRA\\s*)?[123]?\\b",
-   "label": "Diffuseur King's Cup",
-   "max": 2
-  },
-  {
-   "country": "FR",
-   "pattern": "\\b(CANAL\\+\\s*(FOOT|SPORT\\s*360)|DAZN\\s*1?)\\b",
-   "label": "Diffuseur King's Cup",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bFOX\\s*(SOCCER|DEPORTES)\\b",
-   "label": "Diffuseur King's Cup",
-   "max": 2
-  }
- ],
- "botola": [
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|ARRIADIA)\\b(?!\\s*(OLYMPIC|[123]\\b))",
-   "label": "Diffuseur Botola Pro",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*[123]\\b",
-   "label": "Multiplex Botola Pro",
-   "max": 3
-  },
-  {
-   "country": null,
-   "pattern": "\\b(AL\\s*AOULA|ALAOULA)\\b",
-   "label": "Diffuseur Botola Pro",
-   "max": 1
-  },
-  {
-   "country": null,
-   "pattern": "\\b(TAMAZIGHT|AL\\s*MAGHRIBIA|MAGHRIBIA)\\b",
-   "label": "Diffuseur Botola Pro",
-   "max": 2
-  }
- ],
- "coupe_ma": [
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|ARRIADIA)\\b(?!\\s*(OLYMPIC|[123]\\b))",
-   "label": "Diffuseur Coupe du Trône",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*[123]\\b",
-   "label": "Diffuseur Coupe du Trône",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\b(AL\\s*AOULA|ALAOULA|TAMAZIGHT|AL\\s*MAGHRIBIA)\\b",
-   "label": "Diffuseur Coupe du Trône",
-   "max": 2
-  }
- ],
- "caf": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*([123]|MAX\\s*[4-9])?\\b",
-   "label": "Diffuseur compétitions CAF",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*([1-6]|HD\\s*[1-6]|PREMIUM\\s*[1-3])?\\b",
-   "label": "Diffuseur compétitions CAF",
-   "max": 3
-  },
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*TNT\\b",
-   "label": "Diffuseur CAF (TNT Maroc)",
-   "max": 1
-  }
- ],
- "coupe_fr": [
-  {
-   "country": "FR",
-   "pattern": "\\b(BEIN\\s*SPORTS?\\s*[12]|FRANCE\\s*[23])\\b",
-   "label": "Diffuseur Coupe de France",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[124]?\\b",
-   "label": "Diffuseur Coupe de France",
-   "max": 2
-  }
- ],
- "facup": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur FA Cup",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
-   "label": "Diffuseur FA Cup",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(BBC\\s*ONE|ITV\\s*1?|TNT\\s*SPORTS?\\s*1)\\b",
-   "label": "Diffuseur FA Cup",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur FA Cup",
-   "max": 2
-  }
- ],
- "eflcup": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur Carabao Cup",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
-   "label": "Diffuseur Carabao Cup",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(SKY\\s*SPORTS?\\s*(FOOTBALL|MAIN\\s*EVENT)|ITV\\s*1?)\\b",
-   "label": "Diffuseur Carabao Cup",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bCBS\\s*SPORTS?\\b",
-   "label": "Diffuseur Carabao Cup",
-   "max": 2
-  }
- ],
- "coparey": [
-  {
-   "country": "FR",
-   "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
-   "label": "Diffuseur Copa del Rey",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*[12]?\\b",
-   "label": "Diffuseur Copa del Rey",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bPREMIER\\s*SPORTS?\\s*1\\b",
-   "label": "Diffuseur Copa del Rey",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur Copa del Rey",
-   "max": 2
-  }
- ],
- "coppait": [
-  {
-   "country": "FR",
-   "pattern": "\\bL'?EQUIPE\\b",
-   "label": "Diffuseur Coppa Italia",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bAD\\s*SPORTS?\\s*(PREMIUM)?\\s*[12]\\b",
-   "label": "Diffuseur Coppa Italia",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bPREMIER\\s*SPORTS?\\s*1\\b",
-   "label": "Diffuseur Coppa Italia",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bCBS\\s*SPORTS?\\b",
-   "label": "Diffuseur Coppa Italia",
-   "max": 2
-  }
- ],
- "dfbpokal": [
-  {
-   "country": "FR",
-   "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
-   "label": "Diffuseur Coupe d'Allemagne",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\b(DUBAI\\s*SPORTS?|AD\\s*SPORTS?)\\b",
-   "label": "Diffuseur Coupe d'Allemagne",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bPREMIER\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur Coupe d'Allemagne",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur Coupe d'Allemagne",
-   "max": 2
-  }
- ],
- "intl": [
-  {
-   "country": null,
-   "pattern": "\\b(ARRYADIA|AL\\s*AOULA)\\b",
-   "label": "Diffuseur international",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*(MAX\\s*)?[12]\\b",
-   "label": "Diffuseur international",
-   "max": 2
-  },
-  {
-   "country": "FR",
-   "pattern": "\\b(TF1|M6|BEIN\\s*SPORTS?\\s*[12]|L'?EQUIPE)\\b",
-   "label": "Diffuseur international",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(BBC\\s*ONE|ITV\\s*1?)\\b",
-   "label": "Diffuseur international",
-   "max": 2
-  }
- ],
- "f1": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(SPORT|FORMULA\\s*1|F1)?\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\b(TIPIK|RTBF|RTS\\s*(UN|DEUX|SPORT))\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*[123]?\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bSKY\\s*SPORTS?\\s*(F1|MAIN\\s*EVENT)\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur Formule 1",
-   "max": 2
-  }
- ],
- "motogp": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*(SPORT\\s*360|SPORT|MOTOGP|MOTO\\s*GP)?\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\b(TIPIK|RTBF|RTS\\s*(UN|DEUX|SPORT))\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*[123]?\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(TRUTV|TNT)\\b",
-   "label": "Diffuseur MotoGP",
-   "max": 2
-  }
- ],
- "motor": [
-  {
-   "country": "FR",
-   "pattern": "\\b(CANAL\\+\\s*SPORT(\\s*360)?|L'?EQUIPE|EUROSPORT\\s*[12]|AUTOMOTO)\\b",
-   "label": "Diffuseur Sports mécaniques",
-   "max": 2
-  },
-  {
-   "country": null,
-   "pattern": "\\bSSC\\s*[123]?\\b",
-   "label": "Diffuseur Sports mécaniques",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\b",
-   "label": "Diffuseur Sports mécaniques",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(TNT\\s*SPORTS?\\s*[123]|EUROSPORT\\s*[12]|SKY\\s*SPORTS?\\s*F1)\\b",
-   "label": "Diffuseur Sports mécaniques",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(FOX|NBC|USA\\s*NETWORK|ESPN\\s*2?)\\b",
-   "label": "Diffuseur Sports mécaniques",
-   "max": 2
-  }
- ],
- "rg": [
-  {
-   "country": "FR",
-   "pattern": "\\b(FRANCE\\s*[234]|EUROSPORT\\s*[12])\\b",
-   "label": "Diffuseur Roland-Garros",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
-   "label": "Diffuseur Roland-Garros",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bEUROSPORT\\s*[12]\\b",
-   "label": "Diffuseur Roland-Garros",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(TENNIS\\s*CHANNEL|NBC)\\b",
-   "label": "Diffuseur Roland-Garros",
-   "max": 2
-  }
- ],
- "wimbledon": [
-  {
-   "country": "FR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[123]\\b",
-   "label": "Diffuseur Wimbledon",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
-   "label": "Diffuseur Wimbledon",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bBBC\\s*(ONE|TWO)\\b",
-   "label": "Diffuseur Wimbledon",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur Wimbledon",
-   "max": 2
-  }
- ],
- "tennis": [
-  {
-   "country": "FR",
-   "pattern": "\\b(EUROSPORT\\s*[12]|BEIN\\s*SPORTS?\\s*[123])\\b",
-   "label": "Diffuseur Tennis",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
-   "label": "Diffuseur Tennis",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(SKY\\s*SPORTS?\\s*TENNIS|EUROSPORT\\s*[12])\\b",
-   "label": "Diffuseur Tennis",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(TENNIS\\s*CHANNEL|ESPN\\s*2?)\\b",
-   "label": "Diffuseur Tennis",
-   "max": 2
-  }
- ],
- "ufc": [
-  {
-   "country": "FR",
-   "pattern": "\\bRMC\\s*SPORT\\s*[12]\\b",
-   "label": "Diffuseur UFC",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bAD\\s*SPORTS?\\b",
-   "label": "Diffuseur UFC",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*(1|BOX\\s*OFFICE)\\b",
-   "label": "Diffuseur UFC",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\bESPN\\s*2?\\b",
-   "label": "Diffuseur UFC",
-   "max": 2
-  }
- ],
- "ares": [
-  {
-   "country": "FR",
-   "pattern": "\\bCANAL\\+\\s*SPORT(\\s*360)?\\b",
-   "label": "Diffuseur ARES Fighting",
-   "max": 2
-  }
- ],
- "boxing": [
-  {
-   "country": "FR",
-   "pattern": "\\b(DAZN\\s*1?|RMC\\s*SPORT\\s*[12]|CANAL\\+)\\b",
-   "label": "Diffuseur Boxe",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\b(SSC\\s*1?|MBC\\s*ACTION|BEIN\\s*SPORTS?)\\b",
-   "label": "Diffuseur Boxe",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\b(DAZN\\s*1?|SKY\\s*SPORTS?\\s*(BOX\\s*OFFICE|ARENA|MAIN\\s*EVENT)|TNT\\s*SPORTS?\\s*BOX\\s*OFFICE)\\b",
-   "label": "Diffuseur Boxe",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(DAZN|ESPN)\\b",
-   "label": "Diffuseur Boxe",
-   "max": 2
-  }
- ],
- "nba": [
-  {
-   "country": "FR",
-   "pattern": "\\b(BEIN\\s*SPORTS?\\s*[123]|NBA\\s*TV)\\b",
-   "label": "Diffuseur NBA",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\bBEIN\\s*SPORTS?\\b",
-   "label": "Diffuseur NBA",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
-   "label": "Diffuseur NBA",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(ESPN|TNT|ABC|NBA\\s*TV)\\b",
-   "label": "Diffuseur NBA",
-   "max": 2
-  }
- ],
- "nfl": [
-  {
-   "country": "FR",
-   "pattern": "\\b(BEIN\\s*SPORTS?\\s*[12]|DAZN\\s*1?|6TER|M6)\\b",
-   "label": "Diffuseur NFL",
-   "max": 2
-  },
-  {
-   "country": "AR",
-   "pattern": "\\b(SSC\\s*[12]?|BEIN\\s*SPORTS?)\\b",
-   "label": "Diffuseur NFL",
-   "max": 2
-  },
-  {
-   "country": "UK",
-   "pattern": "\\bSKY\\s*SPORTS?\\s*(NFL|MAIN\\s*EVENT)\\b",
-   "label": "Diffuseur NFL",
-   "max": 2
-  },
-  {
-   "country": "US",
-   "pattern": "\\b(NFL\\s*NETWORK|NBC|CBS|FOX|ESPN)\\b",
-   "label": "Diffuseur NFL",
-   "max": 2
-  }
- ]
+  "ucl": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT|LIVE\\s*1|LIVE)?\\b",
+      "label": "Diffuseur Ligue des Champions",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|PREMIUM\\s*1)?\\b",
+      "label": "Diffuseur Ligue des Champions",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur Ligue des Champions",
+      "max": 2
+    }
+  ],
+  "uel": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT(\\s*360)?|LIVE)?\\b",
+      "label": "Diffuseur Ligue Europa",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[123]?\\b",
+      "label": "Diffuseur Ligue Europa",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[123]\\b",
+      "label": "Diffuseur Ligue Europa",
+      "max": 2
+    }
+  ],
+  "uecl": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT(\\s*360)?|LIVE)?\\b",
+      "label": "Diffuseur Ligue Conférence",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[1234]?\\b",
+      "label": "Diffuseur Ligue Conférence",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[1234]\\b",
+      "label": "Diffuseur Ligue Conférence",
+      "max": 2
+    }
+  ],
+  "supercup": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(FOOT|SPORT)?\\b",
+      "label": "Diffuseur Supercoupe d'Europe",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]?\\b",
+      "label": "Diffuseur Supercoupe d'Europe",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*1\\b",
+      "label": "Diffuseur Supercoupe d'Europe",
+      "max": 2
+    }
+  ],
+  "ligue1": [
+    {
+      "country": "FR",
+      "pattern": "\\b(DAZN\\s*[12]?|BEIN\\s*SPORTS?\\s*1|LIGUE\\s*1)\\b",
+      "label": "Diffuseur Ligue 1",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[124]?\\b",
+      "label": "Diffuseur Ligue 1",
+      "max": 2
+    }
+  ],
+  "epl": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(FOOT|PREMIER\\s*LEAGUE|SPORT\\s*360)?\\b",
+      "label": "Diffuseur Premier League",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
+      "label": "Diffuseur Premier League",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(SKY\\s*SPORTS?\\s*(PREMIER\\s*LEAGUE|MAIN\\s*EVENT)|TNT\\s*SPORTS?\\s*1)\\b",
+      "label": "Diffuseur Premier League",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(USA\\s*NETWORK|NBC)\\b",
+      "label": "Diffuseur Premier League",
+      "max": 2
+    }
+  ],
+  "laliga": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur LaLiga",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[13]\\b",
+      "label": "Diffuseur LaLiga",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(PREMIER\\s*SPORTS?\\s*1|LALIGA\\s*TV)\\b",
+      "label": "Diffuseur LaLiga",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN(\\s*DEPORTES|\\s*2)?\\b",
+      "label": "Diffuseur LaLiga",
+      "max": 2
+    }
+  ],
+  "seriea": [
+    {
+      "country": "FR",
+      "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
+      "label": "Diffuseur Serie A",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\b(AD\\s*SPORTS?\\s*(PREMIUM)?\\s*[12]|STARZ\\s*PLAY)\\b",
+      "label": "Diffuseur Serie A",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur Serie A",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bCBS\\s*SPORTS?\\b",
+      "label": "Diffuseur Serie A",
+      "max": 2
+    }
+  ],
+  "bundesliga": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur Bundesliga",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*5?\\b",
+      "label": "Diffuseur Bundesliga",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bSKY\\s*SPORTS?\\s*(FOOTBALL|MIX)\\b",
+      "label": "Diffuseur Bundesliga",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur Bundesliga",
+      "max": 2
+    }
+  ],
+  "roshn": [
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*(EXTRA\\s*)?[123]?\\b",
+      "label": "Diffuseur Roshn League",
+      "max": 2
+    },
+    {
+      "country": "FR",
+      "pattern": "\\b(CANAL\\+\\s*(FOOT|SPORT\\s*360)|DAZN\\s*1?)\\b",
+      "label": "Diffuseur Roshn League",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bDAZN\\s*1?\\b",
+      "label": "Diffuseur Roshn League",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bFOX\\s*(SOCCER|DEPORTES)\\b",
+      "label": "Diffuseur Roshn League",
+      "max": 2
+    }
+  ],
+  "kingscup": [
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*(EXTRA\\s*)?[123]?\\b",
+      "label": "Diffuseur King's Cup",
+      "max": 2
+    },
+    {
+      "country": "FR",
+      "pattern": "\\b(CANAL\\+\\s*(FOOT|SPORT\\s*360)|DAZN\\s*1?)\\b",
+      "label": "Diffuseur King's Cup",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bFOX\\s*(SOCCER|DEPORTES)\\b",
+      "label": "Diffuseur King's Cup",
+      "max": 2
+    }
+  ],
+  "botola": [
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|ARRIADIA)\\b(?!\\s*(OLYMPIC|[123]\\b))",
+      "label": "Diffuseur Botola Pro",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*[123]\\b",
+      "label": "Multiplex Botola Pro",
+      "max": 3
+    },
+    {
+      "country": null,
+      "pattern": "\\b(AL\\s*AOULA|ALAOULA)\\b",
+      "label": "Diffuseur Botola Pro",
+      "max": 1
+    },
+    {
+      "country": null,
+      "pattern": "\\b(TAMAZIGHT|AL\\s*MAGHRIBIA|MAGHRIBIA)\\b",
+      "label": "Diffuseur Botola Pro",
+      "max": 2
+    }
+  ],
+  "coupe_ma": [
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|ARRIADIA)\\b(?!\\s*(OLYMPIC|[123]\\b))",
+      "label": "Diffuseur Coupe du Trône",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*[123]\\b",
+      "label": "Diffuseur Coupe du Trône",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\b(AL\\s*AOULA|ALAOULA|TAMAZIGHT|AL\\s*MAGHRIBIA)\\b",
+      "label": "Diffuseur Coupe du Trône",
+      "max": 2
+    }
+  ],
+  "caf": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*([123]|MAX\\s*[4-9])?\\b",
+      "label": "Diffuseur compétitions CAF",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*([1-6]|HD\\s*[1-6]|PREMIUM\\s*[1-3])?\\b",
+      "label": "Diffuseur compétitions CAF",
+      "max": 3
+    },
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|ARRIADIA)\\s*TNT\\b",
+      "label": "Diffuseur CAF (TNT Maroc)",
+      "max": 1
+    }
+  ],
+  "coupe_fr": [
+    {
+      "country": "FR",
+      "pattern": "\\b(BEIN\\s*SPORTS?\\s*[12]|FRANCE\\s*[23])\\b",
+      "label": "Diffuseur Coupe de France",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[124]?\\b",
+      "label": "Diffuseur Coupe de France",
+      "max": 2
+    }
+  ],
+  "facup": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur FA Cup",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
+      "label": "Diffuseur FA Cup",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(BBC\\s*ONE|ITV\\s*1?|TNT\\s*SPORTS?\\s*1)\\b",
+      "label": "Diffuseur FA Cup",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur FA Cup",
+      "max": 2
+    }
+  ],
+  "eflcup": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur Carabao Cup",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*(1|2|ENGLISH\\s*1)?\\b",
+      "label": "Diffuseur Carabao Cup",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(SKY\\s*SPORTS?\\s*(FOOTBALL|MAIN\\s*EVENT)|ITV\\s*1?)\\b",
+      "label": "Diffuseur Carabao Cup",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bCBS\\s*SPORTS?\\b",
+      "label": "Diffuseur Carabao Cup",
+      "max": 2
+    }
+  ],
+  "coparey": [
+    {
+      "country": "FR",
+      "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
+      "label": "Diffuseur Copa del Rey",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*[12]?\\b",
+      "label": "Diffuseur Copa del Rey",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bPREMIER\\s*SPORTS?\\s*1\\b",
+      "label": "Diffuseur Copa del Rey",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur Copa del Rey",
+      "max": 2
+    }
+  ],
+  "coppait": [
+    {
+      "country": "FR",
+      "pattern": "\\bL'?EQUIPE\\b",
+      "label": "Diffuseur Coppa Italia",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bAD\\s*SPORTS?\\s*(PREMIUM)?\\s*[12]\\b",
+      "label": "Diffuseur Coppa Italia",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bPREMIER\\s*SPORTS?\\s*1\\b",
+      "label": "Diffuseur Coppa Italia",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bCBS\\s*SPORTS?\\b",
+      "label": "Diffuseur Coppa Italia",
+      "max": 2
+    }
+  ],
+  "dfbpokal": [
+    {
+      "country": "FR",
+      "pattern": "\\b(L'?EQUIPE|BEIN\\s*SPORTS?\\s*[12])\\b",
+      "label": "Diffuseur Coupe d'Allemagne",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\b(DUBAI\\s*SPORTS?|AD\\s*SPORTS?)\\b",
+      "label": "Diffuseur Coupe d'Allemagne",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bPREMIER\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur Coupe d'Allemagne",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur Coupe d'Allemagne",
+      "max": 2
+    }
+  ],
+  "intl": [
+    {
+      "country": null,
+      "pattern": "\\b(ARRYADIA|AL\\s*AOULA)\\b",
+      "label": "Diffuseur international",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*(MAX\\s*)?[12]\\b",
+      "label": "Diffuseur international",
+      "max": 2
+    },
+    {
+      "country": "FR",
+      "pattern": "\\b(TF1|M6|BEIN\\s*SPORTS?\\s*[12]|L'?EQUIPE)\\b",
+      "label": "Diffuseur international",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(BBC\\s*ONE|ITV\\s*1?)\\b",
+      "label": "Diffuseur international",
+      "max": 2
+    }
+  ],
+  "f1": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(SPORT|FORMULA\\s*1|F1)?\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\b(TIPIK|RTBF|RTS\\s*(UN|DEUX|SPORT))\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*[123]?\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bSKY\\s*SPORTS?\\s*(F1|MAIN\\s*EVENT)\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur Formule 1",
+      "max": 2
+    }
+  ],
+  "motogp": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*(SPORT\\s*360|SPORT|MOTOGP|MOTO\\s*GP)?\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\b(TIPIK|RTBF|RTS\\s*(UN|DEUX|SPORT))\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*[123]?\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(TRUTV|TNT)\\b",
+      "label": "Diffuseur MotoGP",
+      "max": 2
+    }
+  ],
+  "motor": [
+    {
+      "country": "FR",
+      "pattern": "\\b(CANAL\\+\\s*SPORT(\\s*360)?|L'?EQUIPE|EUROSPORT\\s*[12]|AUTOMOTO)\\b",
+      "label": "Diffuseur Sports mécaniques",
+      "max": 2
+    },
+    {
+      "country": null,
+      "pattern": "\\bSSC\\s*[123]?\\b",
+      "label": "Diffuseur Sports mécaniques",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\b",
+      "label": "Diffuseur Sports mécaniques",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(TNT\\s*SPORTS?\\s*[123]|EUROSPORT\\s*[12]|SKY\\s*SPORTS?\\s*F1)\\b",
+      "label": "Diffuseur Sports mécaniques",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(FOX|NBC|USA\\s*NETWORK|ESPN\\s*2?)\\b",
+      "label": "Diffuseur Sports mécaniques",
+      "max": 2
+    }
+  ],
+  "rg": [
+    {
+      "country": "FR",
+      "pattern": "\\b(FRANCE\\s*[234]|EUROSPORT\\s*[12])\\b",
+      "label": "Diffuseur Roland-Garros",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
+      "label": "Diffuseur Roland-Garros",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bEUROSPORT\\s*[12]\\b",
+      "label": "Diffuseur Roland-Garros",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(TENNIS\\s*CHANNEL|NBC)\\b",
+      "label": "Diffuseur Roland-Garros",
+      "max": 2
+    }
+  ],
+  "wimbledon": [
+    {
+      "country": "FR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[123]\\b",
+      "label": "Diffuseur Wimbledon",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
+      "label": "Diffuseur Wimbledon",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bBBC\\s*(ONE|TWO)\\b",
+      "label": "Diffuseur Wimbledon",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur Wimbledon",
+      "max": 2
+    }
+  ],
+  "tennis": [
+    {
+      "country": "FR",
+      "pattern": "\\b(EUROSPORT\\s*[12]|BEIN\\s*SPORTS?\\s*[123])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(SKY\\s*SPORTS?\\s*TENNIS|EUROSPORT\\s*[12])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(TENNIS\\s*CHANNEL|ESPN\\s*2?)\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    }
+  ],
+  "ufc": [
+    {
+      "country": "FR",
+      "pattern": "\\bRMC\\s*SPORT\\s*[12]\\b",
+      "label": "Diffuseur UFC",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bAD\\s*SPORTS?\\b",
+      "label": "Diffuseur UFC",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*(1|BOX\\s*OFFICE)\\b",
+      "label": "Diffuseur UFC",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\bESPN\\s*2?\\b",
+      "label": "Diffuseur UFC",
+      "max": 2
+    }
+  ],
+  "ares": [
+    {
+      "country": "FR",
+      "pattern": "\\bCANAL\\+\\s*SPORT(\\s*360)?\\b",
+      "label": "Diffuseur ARES Fighting",
+      "max": 2
+    }
+  ],
+  "boxing": [
+    {
+      "country": "FR",
+      "pattern": "\\b(DAZN\\s*1?|RMC\\s*SPORT\\s*[12]|CANAL\\+)\\b",
+      "label": "Diffuseur Boxe",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\b(SSC\\s*1?|MBC\\s*ACTION|BEIN\\s*SPORTS?)\\b",
+      "label": "Diffuseur Boxe",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(DAZN\\s*1?|SKY\\s*SPORTS?\\s*(BOX\\s*OFFICE|ARENA|MAIN\\s*EVENT)|TNT\\s*SPORTS?\\s*BOX\\s*OFFICE)\\b",
+      "label": "Diffuseur Boxe",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(DAZN|ESPN)\\b",
+      "label": "Diffuseur Boxe",
+      "max": 2
+    }
+  ],
+  "nba": [
+    {
+      "country": "FR",
+      "pattern": "\\b(BEIN\\s*SPORTS?\\s*[123]|NBA\\s*TV)\\b",
+      "label": "Diffuseur NBA",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\b",
+      "label": "Diffuseur NBA",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bTNT\\s*SPORTS?\\s*[12]\\b",
+      "label": "Diffuseur NBA",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(ESPN|TNT|ABC|NBA\\s*TV)\\b",
+      "label": "Diffuseur NBA",
+      "max": 2
+    }
+  ],
+  "nfl": [
+    {
+      "country": "FR",
+      "pattern": "\\b(BEIN\\s*SPORTS?\\s*[12]|DAZN\\s*1?|6TER|M6)\\b",
+      "label": "Diffuseur NFL",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\b(SSC\\s*[12]?|BEIN\\s*SPORTS?)\\b",
+      "label": "Diffuseur NFL",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\bSKY\\s*SPORTS?\\s*(NFL|MAIN\\s*EVENT)\\b",
+      "label": "Diffuseur NFL",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(NFL\\s*NETWORK|NBC|CBS|FOX|ESPN)\\b",
+      "label": "Diffuseur NFL",
+      "max": 2
+    }
+  ],
+  "tennis_fr_tv": [
+    {
+      "country": "FR",
+      "pattern": "\\b(FRANCE\\s*[34]|EUROSPORT\\s*[12])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(SKY\\s*SPORTS?\\s*TENNIS|EUROSPORT\\s*[12])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(TENNIS\\s*CHANNEL|ESPN\\s*2?)\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    }
+  ],
+  "tennis_ma": [
+    {
+      "country": "MA",
+      "pattern": "\\b(ARRIADIA|ARRYADIA|AL\\s*RIYADIA)\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "FR",
+      "pattern": "\\b(EUROSPORT\\s*[12]|BEIN\\s*SPORTS?\\s*[123])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "AR",
+      "pattern": "\\bBEIN\\s*SPORTS?\\s*[57]?\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "UK",
+      "pattern": "\\b(SKY\\s*SPORTS?\\s*TENNIS|EUROSPORT\\s*[12])\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    },
+    {
+      "country": "US",
+      "pattern": "\\b(TENNIS\\s*CHANNEL|ESPN\\s*2?)\\b",
+      "label": "Diffuseur Tennis",
+      "max": 2
+    }
+  ]
 }
