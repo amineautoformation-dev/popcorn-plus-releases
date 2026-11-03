@@ -805,7 +805,7 @@
   ],
   "tennis_ma": [
     {
-      "country": "MA",
+      "country": "AR",
       "pattern": "\\b(ARRIADIA|ARRYADIA|AL\\s*RIYADIA)\\b",
       "label": "Diffuseur Tennis",
       "max": 2
