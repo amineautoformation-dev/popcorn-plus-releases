@@ -14,7 +14,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 SOURCE = "https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv"
-COUNTRIES = ("FR", "MA")
+COUNTRIES = ("FR", "MA", "US", "GB", "SA", "AE", "EG", "BE", "CA", "DE", "ES", "IT")
 
 
 def rows(local=None):
