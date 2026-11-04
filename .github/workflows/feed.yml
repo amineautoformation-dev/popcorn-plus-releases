@@ -1,12 +1,21 @@
 # Matchs de la semaine pour l'onglet Événements de Popcorn+ : un seul appel par jour aux calendriers sportifs
 # pour tous les utilisateurs. Le fichier est publié dans la version « feed » (jamais marquée comme dernière version,
 # pour ne pas gêner la mise à jour de l'app).
+#
+# Alerte : si une source est en panne, ce qui a marché est quand même publié, puis la tâche échoue et GitHub envoie
+# un e-mail au propriétaire du dépôt. Trop peu de matchs (tout est cassé) : rien n'est publié, les TV gardent le
+# fichier précédent. « Run workflow » avec « test_alerte » coché vérifie que l'e-mail arrive.
 name: Matchs de la semaine
 
 on:
   schedule:
     - cron: "0 4,16 * * *"
   workflow_dispatch:
+    inputs:
+      test_alerte:
+        description: "Simuler un problème pour vérifier que l'e-mail d'alerte arrive"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -22,7 +31,8 @@ jobs:
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
           TSDB_KEY: ${{ secrets.TSDB_KEY }}
-      - name: Construire top10.json (Top 10 Netflix officiel, France et Maroc)
+          TEST_ALERTE: ${{ inputs.test_alerte }}
+      - name: Construire top10.json (Top 10 Netflix officiel)
         run: python3 feed/build_top10.py top10.json
       - name: Publier dans la version « feed »
         run: |
@@ -31,3 +41,21 @@ jobs:
           gh release upload feed events.json top10.json --clobber
         env:
           GH_TOKEN: ${{ github.token }}
+      - name: Signaler les sources en panne
+        run: |
+          if [ -s problems.txt ]; then
+            while IFS= read -r line; do echo "::error::$line"; done < problems.txt
+            echo "Fichier publié avec les sources qui marchent ; les problèmes ci-dessus sont à regarder."
+            exit 1
+          fi
+      # GitHub suspend les tâches planifiées d'un dépôt public après 60 jours sans commit : un commit vide les garde
+      # actives (les publications de l'app ne comptent pas comme des commits).
+      - name: Garder la tâche planifiée active
+        if: always() && github.event_name == 'schedule'
+        run: |
+          if [ $(( $(date +%s) - $(git log -1 --format=%ct) )) -gt $((45 * 86400)) ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898900+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "Maintien de la tâche planifiée (suspendue par GitHub après 60 jours sans commit)"
+            git push
+          fi

@@ -57,6 +57,17 @@ STAGES = {
 }
 
 
+# Problèmes rencontrés : le fichier est quand même publié avec ce qui a marché, puis la tâche GitHub échoue pour
+# qu'un e-mail prévienne (voir problems.txt dans .github/workflows/feed.yml).
+PROBLEMS = []
+MIN_EVENTS = 10  # en dessous, quelque chose est cassé : le fichier n'est pas publié, la TV garde le précédent
+
+
+def problem(message):
+    print(message, file=sys.stderr)
+    PROBLEMS.append(message)
+
+
 def get(url, headers=None):
     req = urllib.request.Request(url, headers={"User-Agent": "popcorn-plus-feed", **(headers or {})})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -70,7 +81,7 @@ def ms(dt):
 def football():
     token = os.environ.get("FOOTBALL_DATA_TOKEN")
     if not token:
-        print("football-data.org : pas de clé (FOOTBALL_DATA_TOKEN), ignoré", file=sys.stderr)
+        problem("football-data.org : pas de clé (secret FOOTBALL_DATA_TOKEN), football européen absent")
         return []
     q = urllib.parse.urlencode({
         "competitions": ",".join(FOOTBALL), "dateFrom": NOW.date().isoformat(), "dateTo": UNTIL.date().isoformat(),
@@ -127,7 +138,7 @@ def thesportsdb():
         try:
             events = get(f"https://www.thesportsdb.com/api/v1/json/{key}/eventsnextleague.php?id={lid}").get("events") or []
         except Exception as e:  # une ligue en panne ne bloque pas le fichier
-            print(f"TheSportsDB {competition} : {e}", file=sys.stderr)
+            problem(f"TheSportsDB {competition} : {e}")
             continue
         for e in events:
             if not e.get("strTimestamp"):
@@ -152,6 +163,9 @@ def tennis():
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tennis.json")
     with open(path, encoding="utf-8") as f:
         tournaments = json.load(f)["tournaments"]
+    last = max(date.fromisoformat(t["end"]) for t in tournaments)
+    if last < NOW.date() + timedelta(days=60):
+        problem(f"tennis.json : calendrier des tournois jusqu'au {last.isoformat()} seulement, à compléter (saison suivante)")
     out = []
     for t in tournaments:
         first, last = date.fromisoformat(t["start"]), date.fromisoformat(t["end"])
@@ -180,7 +194,7 @@ def main(rights_path, out_path):
         try:
             events += source()
         except Exception as e:
-            print(f"{source.__name__} : {e}", file=sys.stderr)
+            problem(f"{source.__name__} : {e}")
     # Catalogue des grandes chaînes et chaîne exacte de chaque match d'après le guide TV français.
     sys.path.insert(0, here)
     import channels as catalogue
@@ -194,11 +208,11 @@ def main(rights_path, out_path):
         confirmed, added = beinguide.add_bein(events)
         print(f"guide beIN : {confirmed} matchs confirmés en arabe/anglais, {added} matchs ajoutés (Europa, Conférence, AFC, CAF…)")
     except Exception as e:
-        print(f"guide beIN : {e}", file=sys.stderr)
+        problem(f"guide beIN : {e}")
     try:
         print(f"guide TV : {tvguide.add_tv(events, catalogue.load(os.path.join(here, 'channels.json')))} matchs avec leur chaîne française")
     except Exception as e:
-        print(f"guide TV : {e}", file=sys.stderr)
+        problem(f"guide TV : {e}")
     events = [{k: v for k, v in e.items() if v is not None and not k.startswith("_")} for e in sorted(events, key=lambda e: e["start"])]
     with open(rights_path, encoding="utf-8") as f:
         rights = json.load(f)
@@ -206,6 +220,13 @@ def main(rights_path, out_path):
         json.dump({"version": 1, "generated": ms(NOW), "events": events, "rights": rights,
                    "channels": channel_list, "tvRights": tv_rights}, f, ensure_ascii=False, separators=(",", ":"))
     print(f"{len(events)} événements écrits dans {out_path}")
+
+    if os.environ.get("TEST_ALERTE") == "true":
+        problem("Test de l'alerte demandé à la main : tout va bien, ce message vérifie seulement que l'e-mail arrive.")
+    with open(os.path.join(os.path.dirname(os.path.abspath(out_path)), "problems.txt"), "w", encoding="utf-8") as f:
+        f.writelines(p + "\n" for p in PROBLEMS)
+    if len(events) < MIN_EVENTS:
+        sys.exit(f"Seulement {len(events)} événements : sources en panne, fichier non publié (les TV gardent le précédent).")
 
 
 if __name__ == "__main__":
